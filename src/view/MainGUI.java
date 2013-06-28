@@ -150,6 +150,11 @@ public class MainGUI extends JFrame {
 		contentPanel = new JPanel(new FlowLayout());
 		contentPanel.setBackground(Color.decode("#1c1c1c"));
 		
+		//TABLE
+		JTable playerTable = new JTable();
+		
+		String[] columns = { "Rang", "Speler", "Played", "Won"};
+		
 		JLabel lablab = new JLabel("View Players!");
 		lablab.setForeground(Color.WHITE);
 		contentPanel.add(lablab);
