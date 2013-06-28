@@ -35,7 +35,7 @@ public class FileController {
 	
 	private FileController() {
 		// TODO: Read XML and push data through controllers
-
+		
 	}
 	
 	public void addGame(String name, boolean isFFA) {
@@ -87,7 +87,7 @@ public class FileController {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-			// TODO: Load shit
+			// TODO: Load shit from controllers
 			
 			// root elements
 			Document doc = docBuilder.newDocument();
