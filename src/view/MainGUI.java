@@ -47,7 +47,6 @@ public class MainGUI extends JFrame {
 		// fileController = new FileController();
 		gameController = GameController.getInstance();// new GameController();
 		playerController = PlayerController.getInstance();
-		playerController.setGames(gameController.getGames());
 		scoreController = ScoreController.getInstance();
 		init();
 	}
