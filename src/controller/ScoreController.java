@@ -69,7 +69,8 @@ public class ScoreController {
 	}
 	
 	public String getLeader() {
-		Player highest = PlayerController.getInstance().getPlayers().get(0);
+		Player highest = PlayerController.getInstance()
+				.getPlayersSortedByScore().get(0);
 		for (Player candidate : PlayerController.getInstance().getPlayers())
 			if (candidate.getScore() > highest.getScore()) highest = candidate;
 		return highest.getName();
