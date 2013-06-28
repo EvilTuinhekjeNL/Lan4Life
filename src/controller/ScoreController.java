@@ -22,27 +22,28 @@ public class ScoreController {
 		rounds = new ArrayList<Round>();
 	}
 	
-	private Player[][] distribute(ArrayList<Player> remaining) {
-		ArrayList<Player> teamA = new ArrayList<Player>();
-		ArrayList<Player> teamB = new ArrayList<Player>();
-		// TODO: sort remaining by current game skill
-		return distribute(remaining, teamA, teamB);
-	}
-	
 	private Player[][] distribute(ArrayList<Player> remaining,
-			ArrayList<Player> teamA, ArrayList<Player> teamB) {
+			ArrayList<Player> teamA, ArrayList<Player> teamB, String game) {
 		if (remaining.size() == 0) {
 			Player[][] current = new Player[][] {teamA.toArray(new Player[0]), teamB.toArray(new Player[0])};
 			return current;
 		} else {
 			Player addMe = remaining.get(0);
 			remaining.remove(0);
-			if (Round.getTotalSkill(teamB.toArray(new Player[0])) > Round
-					.getTotalSkill(teamA.toArray(new Player[0]))) teamA.add(addMe);
+			if (Round.getTotalSkill(teamB.toArray(new Player[0]), game) > Round
+					.getTotalSkill(teamA.toArray(new Player[0]), game)) teamA
+					.add(addMe);
 			else
 				teamB.add(addMe);
-			return distribute(remaining, teamA, teamB);
+			return distribute(remaining, teamA, teamB, game);
 		}
+	}
+	
+	private Player[][] distribute(ArrayList<Player> remaining, String game) {
+		ArrayList<Player> teamA = new ArrayList<Player>();
+		ArrayList<Player> teamB = new ArrayList<Player>();
+		// TODO: sort remaining by current game skill
+		return distribute(remaining, teamA, teamB, game);
 	}
 	
 	public int getCountRounds() {
@@ -83,9 +84,11 @@ public class ScoreController {
 		GameController c = GameController.getInstance();
 		Random r = new Random();
 		Game g = c.getGames().get(r.nextInt(c.getGames().size()));
-		// Add to team A
-		// Add to team B until > A
-		// repeat
+		// TODO: Pass players sorted by current game skill
+		ArrayList<Player> players = PlayerController.getInstance().getPlayers();
+		Player[][] teams = this.distribute(players, g.getName());
+		
+		rounds.add(new Round(g, teams[0], teams[1]));
 	}
 	
 	public void setTeamAWin(boolean b) {

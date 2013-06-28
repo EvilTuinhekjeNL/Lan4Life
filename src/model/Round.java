@@ -1,12 +1,13 @@
 package model;
 
 public class Round {
-	public static int getTotalSkill(Player[] team) {
+	public static int getTotalSkill(Player[] team, String game) {
 		int total = 0;
 		for (Player p : team)
-			total += p.getSkill().get(playing.getName());
+			total += p.getSkill().get(game);
 		return total;
 	}
+	
 	private Player[]	teamA;
 	private Player[]	teamB;
 	// This is weird before the round ends, so don't fuck around with it until
@@ -30,7 +31,7 @@ public class Round {
 	}
 	
 	public int getTeamATotalSkill() {
-		return getTotalSkill(teamA);
+		return getTotalSkill(teamA, getPlaying().getName());
 	}
 	
 	public Player[] getTeamB() {
@@ -38,7 +39,7 @@ public class Round {
 	}
 	
 	public int getTeamBTotalSkill() {
-		return getTotalSkill(teamB);
+		return getTotalSkill(teamB, getPlaying().getName());
 	}
 	
 	public void setTeamAWin() {

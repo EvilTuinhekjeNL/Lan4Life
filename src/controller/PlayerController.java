@@ -74,6 +74,16 @@ public class PlayerController {
 		return players;
 	}
 	
+	public ArrayList<Player> getPlayersSortedByGameSkill(String game) {
+		sortPlayersByGameSkill(game);
+		return players;
+	}
+	
+	public ArrayList<Player> getPlayersSortedByScore() {
+		sortPlayersByScore();
+		return players;
+	}
+	
 	public int getRank(String name) {
 		return findPlayerIndex(name);
 	}
@@ -90,7 +100,12 @@ public class PlayerController {
 		addDefaultPlayers(games);
 	}
 	
-	private void sortPlayers() {
+	private void sortPlayersByGameSkill(String game) {
+		
+	}
+	
+	// TODO: Quicksort
+	private void sortPlayersByScore() {
 		boolean didSomething = false;
 		if (players.size() >= 2) for (int i = 0; i < players.size()-1; i++)
 			if (players.get(i).getScore() > players.get(i + 1).getScore()) {
@@ -100,6 +115,6 @@ public class PlayerController {
 				players.set(i + 1, b);
 				didSomething = true;
 			}
-		if (didSomething) sortPlayers();
+		if (didSomething) sortPlayersByScore();
 	}
 }
