@@ -54,7 +54,9 @@ public class ScoreController {
 	}
 	
 	public Round getLatest() {
-		return rounds.get(rounds.size()-1);
+		if (rounds.size() > 0) return rounds.get(rounds.size() - 1);
+		else
+			return null;
 	}
 	
 	public String getLeader() {
