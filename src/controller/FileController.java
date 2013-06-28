@@ -54,9 +54,11 @@ public class FileController {
 
 			// Players elements (1/3)
 			Element players = doc.createElement("Players");
+			
+			
 			Element player = doc.createElement("Player");
 			player.setAttribute("Name", "Rob");
-			// Element playerName = doc.createElement("Name");
+			
 
 			// playerName.setNodeValue("Rob");
 			// player.appendChild(playerName);
