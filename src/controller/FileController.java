@@ -46,7 +46,8 @@ public class FileController {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-
+			// TODO: Load shit
+			
 			// root elements
 			Document doc = docBuilder.newDocument();
 			Element rootElement = doc.createElement("LAN4LIFE");
@@ -58,7 +59,6 @@ public class FileController {
 			
 			Element player = doc.createElement("Player");
 			player.setAttribute("Name", "Rob");
-			
 
 			// playerName.setNodeValue("Rob");
 			// player.appendChild(playerName);
