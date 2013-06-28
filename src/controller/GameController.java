@@ -19,6 +19,7 @@ public class GameController {
 	}
 	
 	public ArrayList<Game> getGames() {
+		if (games.size() == 0) init();
 		return games;
 	}
 	

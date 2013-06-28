@@ -22,6 +22,21 @@ public class ScoreController {
 		rounds = new ArrayList<Round>();
 	}
 	
+	private Player[][] distribute(ArrayList<Player> remaining) {
+		ArrayList<Player> teamA = new ArrayList<Player>();
+		ArrayList<Player> teamB = new ArrayList<Player>();
+		return distribute(remaining, teamA, teamB);
+	}
+	
+	private Player[][] distribute(ArrayList<Player> remaining,
+			ArrayList<Player> teamA, ArrayList<Player> teamB) {
+		if (remaining.size() == 0) {
+			Player[][] current = new Player[][] {teamA.toArray(new Player[0]), teamB.toArray(new Player[0])};
+			return current;
+		} else
+			return distribute(remaining, teamA, teamB);
+	}
+	
 	public int getCountRounds() {
 		return rounds.size() > 0 ? 1 : rounds.size();
 	}
@@ -37,7 +52,7 @@ public class ScoreController {
 	public Player[] getCurrentTeamB() {
 		return getLatest().getTeamB();
 	}
-
+	
 	public Round getLatest() {
 		return rounds.get(rounds.size()-1);
 	}
@@ -57,6 +72,9 @@ public class ScoreController {
 		GameController c = GameController.getInstance();
 		Random r = new Random();
 		Game g = c.getGames().get(r.nextInt(c.getGames().size()));
+		// Add to team A
+		// Add to team B until > A
+		// repeat
 	}
 	
 	public void setTeamAWin(boolean b) {
