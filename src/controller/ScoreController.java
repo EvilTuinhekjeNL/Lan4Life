@@ -26,6 +26,22 @@ public class ScoreController {
 		return rounds.size() > 0 ? 1 : rounds.size();
 	}
 	
+	public Game getCurrentGame() {
+		return getLatest().getPlaying();
+	}
+	
+	public Player[] getCurrentTeamA() {
+		return getLatest().getTeamA();
+	}
+	
+	public Player[] getCurrentTeamB() {
+		return getLatest().getTeamB();
+	}
+
+	public Round getLatest() {
+		return rounds.get(rounds.size()-1);
+	}
+	
 	public String getLeader() {
 		Player highest = PlayerController.getInstance().getPlayers().get(0);
 		for (Player candidate : PlayerController.getInstance().getPlayers())
