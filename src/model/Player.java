@@ -3,7 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.w3c.dom.Node;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 public class Player {
 	private String name;
@@ -55,7 +56,12 @@ public class Player {
 		skill.put(key, value);
 	}
 	
-	public Node toXML() {
-		Node me = new Node();
+	public Element toXML(Document d) {
+		Element me = d.createElement("Player");
+		
+		me.setAttribute("Name", name);
+		me.setAttribute("Score", Integer.toString(score));
+		
+		return me;
 	}
 }

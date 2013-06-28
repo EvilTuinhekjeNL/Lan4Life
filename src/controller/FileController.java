@@ -51,10 +51,7 @@ public class FileController {
 			Document doc = docBuilder.parse(location);
 			
 			Element players = doc.getElementById("Players");
-			for (Player p : PlayerController.getInstance().getPlayers())
-				players.appendChild(p.toXML());
 			
-
 			// Output
 			TransformerFactory transformerFactory = TransformerFactory
 					.newInstance();
@@ -96,13 +93,11 @@ public class FileController {
 			// Players elements (1/3)
 			Element players = doc.createElement("Players");
 			
-			
-			Element player = doc.createElement("Player");
-			player.setAttribute("Name", "Rob");
+			for (Player p : PlayerController.getInstance().getPlayers())
+				players.appendChild(p.toXML(doc));
 			
 			// playerName.setNodeValue("Rob");
 			// player.appendChild(playerName);
-			players.appendChild(player);
 			rootElement.appendChild(players);
 			
 			// Games elements (2/3)
