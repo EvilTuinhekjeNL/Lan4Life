@@ -24,6 +24,10 @@ public class Round {
 		teamAWon = true;
 	}
 	
+	public void setTeamBWin() {
+		teamAWon = false;
+	}
+
 	public boolean teamAWon() {
 		return teamAWon;
 	}

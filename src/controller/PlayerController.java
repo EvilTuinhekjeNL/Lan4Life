@@ -43,6 +43,14 @@ public class PlayerController {
 		return null;
 	}
 	
+	private int findPlayerIndex(String name) {
+		for (int i = 0; i < players.size(); i++) {
+			Player p = players.get(i);
+			if (p.getName().toLowerCase().equals(name.toLowerCase())) return i;
+		}
+		return 0;
+	}
+	
 	public int getCountActivePlayers() {
 		int active = 0;
 		for (Player player : players)
@@ -67,15 +75,13 @@ public class PlayerController {
 	}
 	
 	public int getRank(String name) {
-		Player p = findPlayer(name);
-		// TODO: return rank (place in list) of player
-		if (p == null) return 0;
-		return 1;
+		return findPlayerIndex(name);
 	}
 	
 	public int getWon(String name) {
 		Player p = findPlayer(name);
 		// TODO: Make this work
+		// NOTE: amount of times won
 		if (p == null) return 0;
 		return 1;
 	}
@@ -84,4 +90,16 @@ public class PlayerController {
 		addDefaultPlayers(games);
 	}
 	
+	private void sortPlayers() {
+		boolean didSomething = false;
+		if (players.size() >= 2) for (int i = 0; i < players.size()-1; i++)
+			if (players.get(i).getScore() > players.get(i + 1).getScore()) {
+				Player a = players.get(i);
+				Player b = players.get(i + 1);
+				players.set(i, b);
+				players.set(i + 1, b);
+				didSomething = true;
+			}
+		if (didSomething) sortPlayers();
+	}
 }
