@@ -56,7 +56,8 @@ public class ScoreController {
 	public Round getLatest() {
 		if (rounds.size() > 0) return rounds.get(rounds.size() - 1);
 		else
-			return null;
+			return new Round(GameController.getInstance().getGames().get(0),
+					new Player[0], new Player[0]);
 	}
 	
 	public String getLeader() {
