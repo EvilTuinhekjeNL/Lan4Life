@@ -101,7 +101,17 @@ public class PlayerController {
 	}
 	
 	private void sortPlayersByGameSkill(String game) {
-		
+		boolean didSomething = false;
+		if (players.size() >= 2) for (int i = 0; i < players.size() - 1; i++)
+			if (players.get(i).getSkill().get(game) > players.get(i + 1)
+					.getSkill().get(game)) {
+				Player a = players.get(i);
+				Player b = players.get(i + 1);
+				players.set(i, b);
+				players.set(i + 1, b);
+				didSomething = true;
+			}
+		if (didSomething) sortPlayersByScore();
 	}
 	
 	// TODO: Quicksort

@@ -42,7 +42,6 @@ public class ScoreController {
 	private Player[][] distribute(ArrayList<Player> remaining, String game) {
 		ArrayList<Player> teamA = new ArrayList<Player>();
 		ArrayList<Player> teamB = new ArrayList<Player>();
-		// TODO: sort remaining by current game skill
 		return distribute(remaining, teamA, teamB, game);
 	}
 	
@@ -77,15 +76,11 @@ public class ScoreController {
 	}
 	
 	public void newGame() {
-		// TODO: Make this work
-		// Random games
-		// Random (fair teams)
-		// rounds.add(new Round(g));
 		GameController c = GameController.getInstance();
 		Random r = new Random();
 		Game g = c.getGames().get(r.nextInt(c.getGames().size()));
-		// TODO: Pass players sorted by current game skill
-		ArrayList<Player> players = PlayerController.getInstance().getPlayers();
+		ArrayList<Player> players = PlayerController.getInstance()
+				.getPlayersSortedByGameSkill(g.getName());
 		Player[][] teams = this.distribute(players, g.getName());
 		
 		rounds.add(new Round(g, teams[0], teams[1]));
