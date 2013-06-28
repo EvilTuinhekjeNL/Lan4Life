@@ -25,6 +25,6 @@ public class Round {
 	}
 	
 	public boolean teamAWon() {
-		return teamAWon();
+		return teamAWon;
 	}
 }

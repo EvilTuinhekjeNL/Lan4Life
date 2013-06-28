@@ -12,6 +12,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import model.Game;
 import model.Player;
 
 import org.w3c.dom.Document;
@@ -102,8 +103,9 @@ public class FileController {
 			
 			// Games elements (2/3)
 			Element games = doc.createElement("Games");
-			rootElement.appendChild(games);
-			
+			for (Game g : GameController.getInstance().getGames())
+				games.appendChild(g.toXML(doc));
+
 			// Rounds elements (3/3)
 			Element rounds = doc.createElement("Rounds");
 			rootElement.appendChild(rounds);
