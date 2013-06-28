@@ -25,6 +25,7 @@ public class ScoreController {
 	private Player[][] distribute(ArrayList<Player> remaining) {
 		ArrayList<Player> teamA = new ArrayList<Player>();
 		ArrayList<Player> teamB = new ArrayList<Player>();
+		// TODO: sort remaining by current game skill
 		return distribute(remaining, teamA, teamB);
 	}
 	
@@ -33,8 +34,15 @@ public class ScoreController {
 		if (remaining.size() == 0) {
 			Player[][] current = new Player[][] {teamA.toArray(new Player[0]), teamB.toArray(new Player[0])};
 			return current;
-		} else
+		} else {
+			Player addMe = remaining.get(0);
+			remaining.remove(0);
+			if (Round.getTotalSkill(teamB.toArray(new Player[0])) > Round
+					.getTotalSkill(teamA.toArray(new Player[0]))) teamA.add(addMe);
+			else
+				teamB.add(addMe);
 			return distribute(remaining, teamA, teamB);
+		}
 	}
 	
 	public int getCountRounds() {

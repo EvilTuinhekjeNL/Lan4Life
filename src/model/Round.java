@@ -1,11 +1,18 @@
 package model;
 
 public class Round {
+	public static int getTotalSkill(Player[] team) {
+		int total = 0;
+		for (Player p : team)
+			total += p.getSkill().get(playing.getName());
+		return total;
+	}
 	private Player[]	teamA;
 	private Player[]	teamB;
 	// This is weird before the round ends, so don't fuck around with it until
 	// it does :D
 	private Game		playing;
+	
 	private boolean		teamAWon;
 	
 	public Round(Game playing, Player[] teamA, Player[] teamB) {
@@ -22,8 +29,16 @@ public class Round {
 		return teamA;
 	}
 	
+	public int getTeamATotalSkill() {
+		return getTotalSkill(teamA);
+	}
+	
 	public Player[] getTeamB() {
 		return teamB;
+	}
+	
+	public int getTeamBTotalSkill() {
+		return getTotalSkill(teamB);
 	}
 	
 	public void setTeamAWin() {
