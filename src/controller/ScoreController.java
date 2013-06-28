@@ -32,4 +32,12 @@ public class ScoreController {
 		return highest.getName();
 	}
 	
+	public void setTeamAWin(boolean b) {
+		if (rounds.size() > 0) {
+			Round last = rounds.get(rounds.size() -1);
+			if (b) last.setTeamAWin();
+			else
+				last.setTeamBWin();
+		}
+	}
 }
