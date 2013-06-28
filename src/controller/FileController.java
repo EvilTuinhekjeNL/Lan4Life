@@ -23,24 +23,65 @@ public class FileController {
 	 * opgeslagen blijven voor elke LAN Tevens handelt deze class het inladen
 	 * in.
 	 */
-
+	
 	private String location = "src/resources/Lan4Life.xml";
 	public static FileController instance;
-
+	
 	public static FileController getInstance() {
 		if (instance == null)
 			instance = new FileController();
 		return instance;
 	}
-
+	
 	private FileController() {
 		// TODO: Read XML and push data through controllers
-	}
 
+	}
+	
+	public void addGame(String name, boolean isFFA) {
+		
+	}
+	
+	public void addPlayer(String name) {
+		try {
+			DocumentBuilderFactory docFactory = DocumentBuilderFactory
+					.newInstance();
+			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
+			Document doc = docBuilder.parse(location);
+			
+			Element players = doc.getElementById("Players");
+			Node newPlayer = doc.createElement("Player");
+			Node newPlayerName = doc.createElement("Name");
+			newPlayerName.setNodeValue(name);
+			newPlayer.appendChild(newPlayerName);
+			players.appendChild(newPlayer);
+			
+			// Output
+			TransformerFactory transformerFactory = TransformerFactory
+					.newInstance();
+			Transformer transformer = transformerFactory.newTransformer();
+			DOMSource source = new DOMSource(doc);
+			File newFile = new File(location);
+			newFile.createNewFile();
+			StreamResult result = new StreamResult(newFile);
+			transformer.transform(source, result);
+			System.out.println("File updated!");
+			
+		} catch (ParserConfigurationException pce) {
+			pce.printStackTrace();
+		} catch (TransformerException tfe) {
+			tfe.printStackTrace();
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+		} catch (SAXException sae) {
+			sae.printStackTrace();
+		}
+	}
+	
 	public boolean L4LExists() {
 		return new File(location).isFile();
 	}
-
+	
 	public void makeL4Lfile() {
 		try {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory
@@ -52,27 +93,27 @@ public class FileController {
 			Document doc = docBuilder.newDocument();
 			Element rootElement = doc.createElement("LAN4LIFE");
 			doc.appendChild(rootElement);
-
+			
 			// Players elements (1/3)
 			Element players = doc.createElement("Players");
 			
 			
 			Element player = doc.createElement("Player");
 			player.setAttribute("Name", "Rob");
-
+			
 			// playerName.setNodeValue("Rob");
 			// player.appendChild(playerName);
 			players.appendChild(player);
 			rootElement.appendChild(players);
-
+			
 			// Games elements (2/3)
 			Element games = doc.createElement("Games");
 			rootElement.appendChild(games);
-
+			
 			// Rounds elements (3/3)
 			Element rounds = doc.createElement("Rounds");
 			rootElement.appendChild(rounds);
-
+			
 			// Output
 			TransformerFactory transformerFactory = TransformerFactory
 					.newInstance();
@@ -83,7 +124,7 @@ public class FileController {
 			StreamResult result = new StreamResult(newFile);
 			transformer.transform(source, result);
 			System.out.println("File saved!");
-
+			
 		} catch (IOException e) {
 			e.printStackTrace(System.out);
 		} catch (ParserConfigurationException pce) {
@@ -92,45 +133,5 @@ public class FileController {
 			tfe.printStackTrace(System.out);
 		}
 	}
-
-	public void addPlayer(String name) {
-		try {
-			DocumentBuilderFactory docFactory = DocumentBuilderFactory
-					.newInstance();
-			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-			Document doc = docBuilder.parse(location);
-
-			Element players = doc.getElementById("Players");
-			Node newPlayer = doc.createElement("Player");
-			Node newPlayerName = doc.createElement("Name");
-			newPlayerName.setNodeValue(name);
-			newPlayer.appendChild(newPlayerName);
-			players.appendChild(newPlayer);
-
-			// Output
-			TransformerFactory transformerFactory = TransformerFactory
-					.newInstance();
-			Transformer transformer = transformerFactory.newTransformer();
-			DOMSource source = new DOMSource(doc);
-			File newFile = new File(location);
-			newFile.createNewFile();
-			StreamResult result = new StreamResult(newFile);
-			transformer.transform(source, result);
-			System.out.println("File updated!");
-
-		} catch (ParserConfigurationException pce) {
-			pce.printStackTrace();
-		} catch (TransformerException tfe) {
-			tfe.printStackTrace();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		} catch (SAXException sae) {
-			sae.printStackTrace();
-		}
-	}
-
-	public void addGame(String name, boolean isFFA) {
-
-	}
-
+	
 }
