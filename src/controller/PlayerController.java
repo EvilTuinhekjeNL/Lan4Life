@@ -73,11 +73,11 @@ public class PlayerController {
 		return 1;
 	}
 	
-	public boolean getWon(String name) {
+	public int getWon(String name) {
 		Player p = findPlayer(name);
 		// TODO: Make this work
-		if (p == null) return false;
-		return true;
+		if (p == null) return 0;
+		return 1;
 	}
 	
 	public void setGames(ArrayList<Game> games) {

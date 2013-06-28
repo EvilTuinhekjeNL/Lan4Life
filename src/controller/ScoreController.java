@@ -7,19 +7,17 @@ import model.Round;
 
 public class ScoreController {
 	private ArrayList<Round> rounds;
-	private ArrayList<Player> players;
 	
 	private static ScoreController instance;
 	
 	public static ScoreController getInstance() {
 		if (instance == null)
-			instance = new ScoreController(PlayerController.getInstance().getPlayers());
+ instance = new ScoreController();
 		return instance;
 	}
 	
-	private ScoreController(ArrayList<Player> playerList) {
+	private ScoreController() {
 		rounds = new ArrayList<Round>();
-		players = playerList;
 	}
 	
 	public int getCountRounds() {
