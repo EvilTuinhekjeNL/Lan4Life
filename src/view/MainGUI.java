@@ -141,11 +141,29 @@ public class MainGUI extends JFrame {
 		littleWrap.remove(contentPanel);
 		contentPanel = new JPanel(new FlowLayout());
 		contentPanel.setBackground(Color.decode("#1c1c1c"));
-
-		String gameTxt = String.format("Ronde %d, het spel dat gespeeld gaat worden is: %s", scoreController.getCountRounds(), scoreController.);
-		JLabel lablab = new JLabel("Ronde !");
+		scoreController.newGame();
+		String gameTxt = String.format("Ronde %d, het spel dat gespeeld gaat worden is: %s", scoreController.getCountRounds(), scoreController.getCurrentGame());
+		JLabel lablab = new JLabel(gameTxt);
 		lablab.setForeground(Color.WHITE);
 		contentPanel.add(lablab);
+		
+		StringBuilder teamA = new StringBuilder();
+		teamA.append("Team A:");
+		for(Player noob: scoreController.getCurrentTeamA()){
+			teamA.append("\n- "+noob.getName()+";");
+		}
+		
+		StringBuilder teamB = new StringBuilder();
+		teamA.append("Team B:");
+		for(Player noob: scoreController.getCurrentTeamB()){
+			teamB.append("\n- "+noob.getName()+";");
+		}
+		
+		JLabel TeamAList = new JLabel(teamA.toString());
+		JLabel TeamBList = new JLabel(teamB.toString());
+		
+		contentPanel.add(TeamAList);
+		contentPanel.add(TeamBList);
 
 		littleWrap.add(contentPanel, BorderLayout.CENTER);
 		littleWrap.revalidate();
