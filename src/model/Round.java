@@ -5,11 +5,17 @@ public class Round {
 	private Player[]	teamB;
 	// This is weird before the round ends, so don't fuck around with it until
 	// it does :D
+	private Game		playing;
 	private boolean		teamAWon;
 	
-	public Round(Player[] teamA, Player[] teamB) {
+	public Round(Game playing, Player[] teamA, Player[] teamB) {
+		this.playing = playing;
 		this.teamA = teamA;
 		this.teamB = teamB;
+	}
+	
+	public Game getPlaying() {
+		return playing;
 	}
 	
 	public Player[] getTeamA() {
@@ -27,7 +33,7 @@ public class Round {
 	public void setTeamBWin() {
 		teamAWon = false;
 	}
-
+	
 	public boolean teamAWon() {
 		return teamAWon;
 	}

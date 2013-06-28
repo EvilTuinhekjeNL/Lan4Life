@@ -1,7 +1,9 @@
 package controller;
 
 import java.util.ArrayList;
+import java.util.Random;
 
+import model.Game;
 import model.Player;
 import model.Round;
 
@@ -21,15 +23,24 @@ public class ScoreController {
 	}
 	
 	public int getCountRounds() {
-		return rounds.size() + 1;
+		return rounds.size() > 0 ? 1 : rounds.size();
 	}
 	
 	public String getLeader() {
 		Player highest = PlayerController.getInstance().getPlayers().get(0);
 		for (Player candidate : PlayerController.getInstance().getPlayers())
-			if (candidate.getScore() > highest.getScore())
-				highest = candidate;
+			if (candidate.getScore() > highest.getScore()) highest = candidate;
 		return highest.getName();
+	}
+	
+	public void newGame() {
+		// TODO: Make this work
+		// Random games
+		// Random (fair teams)
+		// rounds.add(new Round(g));
+		GameController c = GameController.getInstance();
+		Random r = new Random();
+		Game g = c.getGames().get(r.nextInt(c.getGames().size()));
 	}
 	
 	public void setTeamAWin(boolean b) {
