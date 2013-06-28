@@ -25,7 +25,7 @@ public class ScoreController {
 	private Player[][] distribute(ArrayList<Player> remaining,
 			ArrayList<Player> teamA, ArrayList<Player> teamB, String game,
 			int place) {
-		if (remaining.size() - 1 == place) {
+		if (remaining.size() == place) {
 			Player[][] current = new Player[][] {teamA.toArray(new Player[0]), teamB.toArray(new Player[0])};
 			return current;
 		} else {
