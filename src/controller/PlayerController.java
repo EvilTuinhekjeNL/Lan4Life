@@ -17,6 +17,7 @@ public class PlayerController {
 	
 	private PlayerController() {
 		players = new ArrayList<Player>();
+		addDefaultPlayers(GameController.getInstance().getGames());
 	}
 	
 	private void addDefaultPlayers(ArrayList<Game> games) {

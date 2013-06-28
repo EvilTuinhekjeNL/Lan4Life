@@ -23,26 +23,28 @@ public class ScoreController {
 	}
 	
 	private Player[][] distribute(ArrayList<Player> remaining,
-			ArrayList<Player> teamA, ArrayList<Player> teamB, String game) {
-		if (remaining.size() == 0) {
+			ArrayList<Player> teamA, ArrayList<Player> teamB, String game,
+			int place) {
+		if (remaining.size() - 1 == place) {
 			Player[][] current = new Player[][] {teamA.toArray(new Player[0]), teamB.toArray(new Player[0])};
 			return current;
 		} else {
-			Player addMe = remaining.get(0);
-			remaining.remove(0);
-			if (Round.getTotalSkill(teamB.toArray(new Player[0]), game) > Round
-					.getTotalSkill(teamA.toArray(new Player[0]), game)) teamA
+			Player addMe = remaining.get(place);
+			place++;
+			if (Round.getTotalSkill(teamA.toArray(new Player[0]), game) < Round
+					.getTotalSkill(teamB.toArray(new Player[0]), game)) teamA
 					.add(addMe);
 			else
 				teamB.add(addMe);
-			return distribute(remaining, teamA, teamB, game);
+			return distribute(remaining, teamA, teamB, game, place);
 		}
 	}
 	
 	private Player[][] distribute(ArrayList<Player> remaining, String game) {
 		ArrayList<Player> teamA = new ArrayList<Player>();
 		ArrayList<Player> teamB = new ArrayList<Player>();
-		return distribute(remaining, teamA, teamB, game);
+		
+		return distribute(remaining, teamA, teamB, game, 0);
 	}
 	
 	public int getCountRounds() {

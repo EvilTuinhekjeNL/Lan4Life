@@ -17,7 +17,7 @@ public class Player {
 		skill = new HashMap<String, Integer>();
 		this.name = name;
 		for (Game game : gameList)
-			setSkill(game.getName(), 0);
+			setSkill(game.getName(), 1);
 	}
 	
 	public String getName() {
