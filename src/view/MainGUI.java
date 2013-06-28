@@ -40,7 +40,7 @@ public class MainGUI extends JFrame {
 	private FileController fileController;
 	private BufferedImage bitches;
 	private JPanel wrapper, buttonPanel, contentPanel, littleWrap;
-	private JLabel intro, status;
+	private JLabel intro, status, winnerLab;
 	private JButton playBtn, viewPlayersBtn, viewScoreBtn;
 
 	public MainGUI() {
@@ -159,7 +159,7 @@ public class MainGUI extends JFrame {
 		StringBuilder teamB = new StringBuilder();
 		teamB.append("<html>Team B:");
 		for(Player noob: scoreController.getCurrentTeamB()){
-			teamB.append("\n- "+noob.getName()+";");
+			teamB.append("<br>-\n"+noob.getName()+";");
 		}
 		teamB.append("<br><br></html>");
 		
@@ -167,11 +167,38 @@ public class MainGUI extends JFrame {
 		TeamAList.setForeground(Color.WHITE);
 		JLabel TeamBList = new JLabel(teamB.toString());
 		TeamBList.setForeground(Color.WHITE);
+		winnerLab = new JLabel("Winner is: ");
+		winnerLab.setForeground(Color.WHITE);
 		
 		gekkodesprinkhaan.add(TeamAList, BorderLayout.CENTER);
 		gekkodesprinkhaan.add(TeamBList, BorderLayout.SOUTH);
 		
+		JButton teamAbtn = new JButton("Team A");
+		teamAbtn.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				scoreController.setTeamAWin(true);		
+				winnerLab.setText("Team A won");
+				System.out.println("Team A Won");
+				playGame();
+			}
+		});
+		JButton teamBbtn = new JButton("Team B");
+		teamBbtn.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				scoreController.setTeamAWin(false);	
+				winnerLab.setText("Team B won");
+				System.out.println("Team B Won");
+				playGame();
+			}
+		});
+		JPanel buttonPan = new JPanel(new FlowLayout());
+		buttonPan.add(teamAbtn);
+		buttonPan.add(teamBbtn);
+		
 		contentPanel.add(gekkodesprinkhaan, BorderLayout.NORTH);
+		contentPanel.add(buttonPan, BorderLayout.SOUTH);
 
 		littleWrap.add(contentPanel, BorderLayout.CENTER);
 		littleWrap.revalidate();
