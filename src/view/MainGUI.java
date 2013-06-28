@@ -140,30 +140,38 @@ public class MainGUI extends JFrame {
 	private void playGame() {
 		littleWrap.remove(contentPanel);
 		contentPanel = new JPanel(new FlowLayout());
+		JPanel gekkodesprinkhaan = new JPanel(new BorderLayout());
+		gekkodesprinkhaan.setBackground(Color.decode("#1c1c1c"));
 		contentPanel.setBackground(Color.decode("#1c1c1c"));
 		scoreController.newGame();
-		String gameTxt = String.format("Ronde %d, het spel dat gespeeld gaat worden is: %s", scoreController.getCountRounds(), scoreController.getCurrentGame());
+		String gameTxt = String.format("<html>Ronde %d, het spel dat gespeeld gaat worden is: %s<br><br></html>", scoreController.getCountRounds(), scoreController.getCurrentGame());
 		JLabel lablab = new JLabel(gameTxt);
 		lablab.setForeground(Color.WHITE);
-		contentPanel.add(lablab);
+		gekkodesprinkhaan.add(lablab, BorderLayout.NORTH);
 		
 		StringBuilder teamA = new StringBuilder();
-		teamA.append("Team A:");
+		teamA.append("<html>Team A:");
 		for(Player noob: scoreController.getCurrentTeamA()){
-			teamA.append("\n- "+noob.getName()+";");
+			teamA.append("<br>- "+noob.getName()+";");
 		}
+		teamA.append("<br><br></html>");
 		
 		StringBuilder teamB = new StringBuilder();
-		teamA.append("Team B:");
+		teamB.append("<html>Team B:");
 		for(Player noob: scoreController.getCurrentTeamB()){
 			teamB.append("\n- "+noob.getName()+";");
 		}
+		teamB.append("<br><br></html>");
 		
 		JLabel TeamAList = new JLabel(teamA.toString());
+		TeamAList.setForeground(Color.WHITE);
 		JLabel TeamBList = new JLabel(teamB.toString());
+		TeamBList.setForeground(Color.WHITE);
 		
-		contentPanel.add(TeamAList);
-		contentPanel.add(TeamBList);
+		gekkodesprinkhaan.add(TeamAList, BorderLayout.CENTER);
+		gekkodesprinkhaan.add(TeamBList, BorderLayout.SOUTH);
+		
+		contentPanel.add(gekkodesprinkhaan, BorderLayout.NORTH);
 
 		littleWrap.add(contentPanel, BorderLayout.CENTER);
 		littleWrap.revalidate();
