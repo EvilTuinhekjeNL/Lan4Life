@@ -12,9 +12,10 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
+import model.Player;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
 public class FileController {
@@ -50,12 +51,10 @@ public class FileController {
 			Document doc = docBuilder.parse(location);
 			
 			Element players = doc.getElementById("Players");
-			Node newPlayer = doc.createElement("Player");
-			Node newPlayerName = doc.createElement("Name");
-			newPlayerName.setNodeValue(name);
-			newPlayer.appendChild(newPlayerName);
-			players.appendChild(newPlayer);
+			for (Player p : PlayerController.getInstance().getPlayers())
+				players.appendChild(p.toXML());
 			
+
 			// Output
 			TransformerFactory transformerFactory = TransformerFactory
 					.newInstance();

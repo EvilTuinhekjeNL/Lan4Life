@@ -3,12 +3,14 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.w3c.dom.Node;
+
 public class Player {
 	private String name;
 	private boolean active;
 	private int score;
 	private HashMap<String, Integer> skill;
-
+	
 	public Player(String name, ArrayList<Game> gameList) {
 		active = true;
 		skill = new HashMap<String, Integer>();
@@ -16,40 +18,44 @@ public class Player {
 		for (Game game : gameList)
 			setSkill(game.getName(), 0);
 	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public int getScore() {
 		return score;
 	}
-
+	
 	public HashMap<String, Integer> getSkill() {
 		return skill;
 	}
-
+	
 	public void incrementScore(int increment) {
 		score += increment;
 	}
-
+	
 	public boolean isActive() {
 		return active;
 	}
-
+	
 	public void setActive(boolean active) {
 		this.active = active;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public void setScore(int newScore) {
 		score = newScore;
 	}
-
+	
 	public void setSkill(String key, int value) {
 		skill.put(key, value);
+	}
+	
+	public Node toXML() {
+		Node me = new Node();
 	}
 }

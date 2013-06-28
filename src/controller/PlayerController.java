@@ -36,6 +36,13 @@ public class PlayerController {
 					.getGames()));
 	}
 	
+	private Player findPlayer(String name) {
+		for (Player p : players)
+			if (p.getName().toLowerCase().equals(name.toLowerCase())) return p;
+		
+		return null;
+	}
+	
 	public int getCountActivePlayers() {
 		int active = 0;
 		for (Player player : players)
@@ -48,8 +55,29 @@ public class PlayerController {
 		return players.size();
 	}
 	
+	// number of rounds played
+	public int getPlayed(String name) {
+		Player p = findPlayer(name);
+		if (p == null) return 0; // TODO: make this
+		return 1;
+	}
+	
 	public ArrayList<Player> getPlayers() {
 		return players;
+	}
+	
+	public int getRank(String name) {
+		Player p = findPlayer(name);
+		// TODO: return rank (place in list) of player
+		if (p == null) return 0;
+		return 1;
+	}
+	
+	public boolean getWon(String name) {
+		Player p = findPlayer(name);
+		// TODO: Make this work
+		if (p == null) return false;
+		return true;
 	}
 	
 	public void setGames(ArrayList<Game> games) {
