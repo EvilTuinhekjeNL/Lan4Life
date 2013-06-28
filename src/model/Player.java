@@ -13,37 +13,24 @@ public class Player {
 		active = true;
 		skill = new HashMap<String, Integer>();
 		this.name = name;
-		for (Game game : gameList) {
+		for (Game game : gameList)
 			setSkill(game.getName(), 0);
-		}
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public int getScore() {
 		return score;
-	}
-
-	public void setScore(int newScore) {
-		this.score = newScore;
-	}
-
-	public void incrementScore(int increment) {
-		this.score += increment;
 	}
 
 	public HashMap<String, Integer> getSkill() {
 		return skill;
 	}
 
-	public void setSkill(String key, int value) {
-		skill.put(key, value);
+	public void incrementScore(int increment) {
+		score += increment;
 	}
 
 	public boolean isActive() {
@@ -54,4 +41,15 @@ public class Player {
 		this.active = active;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setScore(int newScore) {
+		score = newScore;
+	}
+
+	public void setSkill(String key, int value) {
+		skill.put(key, value);
+	}
 }
