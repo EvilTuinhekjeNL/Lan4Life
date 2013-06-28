@@ -123,8 +123,8 @@ public class FileController {
 			// These two settings make the transformer produce formatted XML
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
 			transformer.setOutputProperty(
-					"{http://xml.apache.org/xslt}indent-amount", "2");
-
+					"{http://xml.apache.org/xslt}indent-amount", "4");
+			
 			DOMSource source = new DOMSource(doc);
 			File newFile = new File(location);
 			newFile.createNewFile();
