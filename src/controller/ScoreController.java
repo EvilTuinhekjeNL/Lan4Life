@@ -12,7 +12,7 @@ public class ScoreController {
 	
 	public static ScoreController getInstance() {
 		if (instance == null)
- instance = new ScoreController();
+			instance = new ScoreController();
 		return instance;
 	}
 	
@@ -25,8 +25,8 @@ public class ScoreController {
 	}
 	
 	public String getLeader() {
-		Player highest = players.get(0);
-		for (Player candidate : players)
+		Player highest = PlayerController.getInstance().getPlayers().get(0);
+		for (Player candidate : PlayerController.getInstance().getPlayers())
 			if (candidate.getScore() > highest.getScore())
 				highest = candidate;
 		return highest.getName();
