@@ -9,15 +9,20 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.WindowConstants;
 
+import model.Player;
 import controller.FileController;
 import controller.GameController;
 import controller.PlayerController;
@@ -122,9 +127,9 @@ public class MainGUI extends JFrame {
 		String statustxt = String.format(
 				"Ronde %d; Spelers %d (actief %d); Games %d;  Leader: %s",
 				scoreController.getCountRounds(), playerController
-						.getCountPlayers(), playerController
-						.getCountActivePlayers(), gameController.getGames()
-						.size(), scoreController.getLeader());
+				.getCountPlayers(), playerController
+				.getCountActivePlayers(), gameController.getGames()
+				.size(), scoreController.getLeader());
 		status = new JLabel(statustxt);
 		status.setForeground(Color.WHITE);
 		wrapper.add(status, BorderLayout.SOUTH);
@@ -136,11 +141,11 @@ public class MainGUI extends JFrame {
 		littleWrap.remove(contentPanel);
 		contentPanel = new JPanel(new FlowLayout());
 		contentPanel.setBackground(Color.decode("#1c1c1c"));
-		
+
 		JLabel lablab = new JLabel("Play Game!");
 		lablab.setForeground(Color.WHITE);
 		contentPanel.add(lablab);
-		
+
 		littleWrap.add(contentPanel, BorderLayout.CENTER);
 		littleWrap.revalidate();
 	}
@@ -149,30 +154,48 @@ public class MainGUI extends JFrame {
 		littleWrap.remove(contentPanel);
 		contentPanel = new JPanel(new FlowLayout());
 		contentPanel.setBackground(Color.decode("#1c1c1c"));
+
+		String columnNames[] = { "#", "Naam", "Played", "Won", "K/d" };
+		ArrayList<Player> players = playerController.getPlayers();
+		ArrayList<String[]> playerList = new ArrayList<String[]>();
+		for(Player noob : players){
+			ArrayList<String> data = new ArrayList<String>();
+			//playerController.getRank(noob.getName());
+			data.add("1");
+			data.add(noob.getName());
+			//playerController.getPlayed(noob.getName());
+			data.add("1");
+			//playerController.getWon(noob.getName());
+			data.add("1");
+			data.add("1/1");
+			playerList.add(data.toArray(new String[data.size()]));
+		}
 		
-		//TABLE
-		JTable playerTable = new JTable();
+		String dataValues[][] = playerList.toArray(new String[players.size()][playerList.size()]);
 		
-		String[] columns = { "Rang", "Speler", "Played", "Won"};
-		
-		JLabel lablab = new JLabel("View Players!");
-		lablab.setForeground(Color.WHITE);
-		contentPanel.add(lablab);
-		
+
+		JTable playerTable = new JTable(dataValues, columnNames);
+		playerTable.setEnabled(false);
+		JScrollPane scrollPane = new JScrollPane(playerTable);
+		scrollPane.setBackground(Color.decode("#1c1c1c"));
+		scrollPane.getViewport().setBackground(Color.decode("#1c1c1c"));
+		scrollPane.setBorder(BorderFactory.createEmptyBorder());
+		contentPanel.add(scrollPane);
+
 		littleWrap.add(contentPanel, BorderLayout.CENTER);
 		littleWrap.revalidate();
-		
+
 	}
 
 	private void viewScore() {
 		littleWrap.remove(contentPanel);
 		contentPanel = new JPanel(new FlowLayout());
 		contentPanel.setBackground(Color.decode("#1c1c1c"));
-		
+
 		JLabel lablab = new JLabel("View Score!");
 		lablab.setForeground(Color.WHITE);
 		contentPanel.add(lablab);
-		
+
 		littleWrap.add(contentPanel, BorderLayout.CENTER);
 		littleWrap.revalidate();
 	}
