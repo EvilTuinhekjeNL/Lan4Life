@@ -1,5 +1,5 @@
-##Lan4LIFE##
-*.xml
+##Lan4LIFE#
+src/resources/*.xml
 
 #################
 ## Eclipse
