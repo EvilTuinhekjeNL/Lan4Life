@@ -30,12 +30,16 @@ public class ScoreController {
 			return current;
 		} else {
 			Player addMe = remaining.get(place);
+			System.out.println("place: " + place + " " + addMe);
 			place++;
 			if (Round.getTotalSkill(teamA.toArray(new Player[0]), game) < Round
-					.getTotalSkill(teamB.toArray(new Player[0]), game)) teamA
-					.add(addMe);
-			else
+					.getTotalSkill(teamB.toArray(new Player[0]), game)) {
+				teamA.add(addMe);
+				System.out.println("added to team a");
+			} else {
 				teamB.add(addMe);
+				System.out.println("added to team b");
+			}
 			return distribute(remaining, teamA, teamB, game, place);
 		}
 	}

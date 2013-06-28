@@ -2,7 +2,6 @@ package controller;
 
 import java.util.ArrayList;
 
-import model.Game;
 import model.Player;
 
 public class PlayerController {
@@ -17,10 +16,11 @@ public class PlayerController {
 	
 	private PlayerController() {
 		players = new ArrayList<Player>();
-		addDefaultPlayers(GameController.getInstance().getGames());
+		System.out.println("init players");
+		addDefaultPlayers();
 	}
 	
-	private void addDefaultPlayers(ArrayList<Game> games) {
+	private void addDefaultPlayers() {
 		String[] names = new String[] { "Ruben", "Marcus", "Tim", "Stan",
 				"Eloy", "Stefan", "David", "Rob" };
 		
@@ -95,10 +95,6 @@ public class PlayerController {
 		// NOTE: amount of times won
 		if (p == null) return 0;
 		return 1;
-	}
-	
-	public void setGames(ArrayList<Game> games) {
-		addDefaultPlayers(games);
 	}
 	
 	private void sortPlayersByGameSkill(String game) {

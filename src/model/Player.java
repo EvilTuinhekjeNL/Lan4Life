@@ -56,6 +56,11 @@ public class Player {
 		skill.put(key, value);
 	}
 	
+	@Override
+	public String toString() {
+		return "" + name + ", score: " + score;
+	}
+
 	public Element toXML(Document d) {
 		Element me = d.createElement("Player");
 		
