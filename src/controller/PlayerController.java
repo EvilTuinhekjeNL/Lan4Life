@@ -26,9 +26,14 @@ public class PlayerController {
 		addPlayers(names);
 	}
 	
+	public void addPlayer(Player p) {
+		players.add(p);
+	}
+	
 	private void addPlayers(String[] peopleNames) {
 		for (String name : peopleNames)
-			players.add(new Player(name, GameController.getInstance().getGames()));
+			addPlayer(new Player(name, GameController.getInstance()
+					.getGames()));
 	}
 	
 	public int getCountActivePlayers() {
