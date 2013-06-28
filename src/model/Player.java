@@ -60,12 +60,19 @@ public class Player {
 	public String toString() {
 		return "" + name + ", score: " + score;
 	}
-
+	
 	public Element toXML(Document d) {
 		Element me = d.createElement("Player");
 		
 		me.setAttribute("Name", name);
 		me.setAttribute("Score", Integer.toString(score));
+		
+		for(String key : skill.keySet()) {
+			Element skillXML = d.createElement("Skill");
+			skillXML.setAttribute("Key", key);
+			skillXML.setAttribute("Value", Integer.toString(skill.get(key)));
+			me.appendChild(skillXML);
+		}
 		
 		return me;
 	}

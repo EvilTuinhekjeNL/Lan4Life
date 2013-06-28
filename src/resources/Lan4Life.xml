@@ -1,1 +1,150 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><LAN4LIFE><Players><Player Name="Ruben" Score="0"/><Player Name="Marcus" Score="0"/><Player Name="Tim" Score="0"/><Player Name="Stan" Score="0"/><Player Name="Eloy" Score="0"/><Player Name="Stefan" Score="0"/><Player Name="David" Score="0"/><Player Name="Rob" Score="0"/></Players><Games><Game Name="Warcraft 3"/><Game Name="Call of Duty 4: Modern Warfare"/><Game Name="Command &amp; Conquer 3: Tiberium Wars"/><Game Name="League of Legends"/><Game Name="Sid Meier's: Civilization V"/><Game Name="Left4Dead2"/></Games><Rounds><Round TeamAWon="0"><Game Name="Warcraft 3"/><TeamA><Player Name="Marcus" Score="0"/><Player Name="Stan" Score="0"/><Player Name="Stefan" Score="0"/><Player Name="Rob" Score="0"/></TeamA><TeamB><Player Name="Ruben" Score="0"/><Player Name="Tim" Score="0"/><Player Name="Eloy" Score="0"/><Player Name="David" Score="0"/></TeamB></Round></Rounds></LAN4LIFE>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<LAN4LIFE>
+  <Players>
+    <Player Name="Ruben" Score="0">
+      <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+      <Skill Key="League of Legends" Value="1"/>
+      <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+      <Skill Key="Left4Dead2" Value="1"/>
+      <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+      <Skill Key="Warcraft 3" Value="1"/>
+    </Player>
+    <Player Name="Marcus" Score="0">
+      <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+      <Skill Key="League of Legends" Value="1"/>
+      <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+      <Skill Key="Left4Dead2" Value="1"/>
+      <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+      <Skill Key="Warcraft 3" Value="1"/>
+    </Player>
+    <Player Name="Tim" Score="0">
+      <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+      <Skill Key="League of Legends" Value="1"/>
+      <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+      <Skill Key="Left4Dead2" Value="1"/>
+      <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+      <Skill Key="Warcraft 3" Value="1"/>
+    </Player>
+    <Player Name="Stan" Score="0">
+      <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+      <Skill Key="League of Legends" Value="1"/>
+      <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+      <Skill Key="Left4Dead2" Value="1"/>
+      <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+      <Skill Key="Warcraft 3" Value="1"/>
+    </Player>
+    <Player Name="Eloy" Score="0">
+      <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+      <Skill Key="League of Legends" Value="1"/>
+      <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+      <Skill Key="Left4Dead2" Value="1"/>
+      <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+      <Skill Key="Warcraft 3" Value="1"/>
+    </Player>
+    <Player Name="Stefan" Score="0">
+      <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+      <Skill Key="League of Legends" Value="1"/>
+      <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+      <Skill Key="Left4Dead2" Value="1"/>
+      <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+      <Skill Key="Warcraft 3" Value="1"/>
+    </Player>
+    <Player Name="David" Score="0">
+      <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+      <Skill Key="League of Legends" Value="1"/>
+      <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+      <Skill Key="Left4Dead2" Value="1"/>
+      <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+      <Skill Key="Warcraft 3" Value="1"/>
+    </Player>
+    <Player Name="Rob" Score="0">
+      <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+      <Skill Key="League of Legends" Value="1"/>
+      <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+      <Skill Key="Left4Dead2" Value="1"/>
+      <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+      <Skill Key="Warcraft 3" Value="1"/>
+    </Player>
+  </Players>
+  <Games>
+    <Game Name="Warcraft 3"/>
+    <Game Name="Call of Duty 4: Modern Warfare"/>
+    <Game Name="Command and Conquer 3: Tiberium Wars"/>
+    <Game Name="League of Legends"/>
+    <Game Name="Sid Meier's: Civilization V"/>
+    <Game Name="Left4Dead2"/>
+  </Games>
+  <Rounds>
+    <Round TeamAWon="0">
+      <Game Name="Warcraft 3"/>
+      <TeamA>
+        <Player Name="Marcus" Score="0">
+          <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+          <Skill Key="League of Legends" Value="1"/>
+          <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+          <Skill Key="Left4Dead2" Value="1"/>
+          <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+          <Skill Key="Warcraft 3" Value="1"/>
+        </Player>
+        <Player Name="Stan" Score="0">
+          <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+          <Skill Key="League of Legends" Value="1"/>
+          <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+          <Skill Key="Left4Dead2" Value="1"/>
+          <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+          <Skill Key="Warcraft 3" Value="1"/>
+        </Player>
+        <Player Name="Stefan" Score="0">
+          <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+          <Skill Key="League of Legends" Value="1"/>
+          <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+          <Skill Key="Left4Dead2" Value="1"/>
+          <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+          <Skill Key="Warcraft 3" Value="1"/>
+        </Player>
+        <Player Name="Rob" Score="0">
+          <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+          <Skill Key="League of Legends" Value="1"/>
+          <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+          <Skill Key="Left4Dead2" Value="1"/>
+          <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+          <Skill Key="Warcraft 3" Value="1"/>
+        </Player>
+      </TeamA>
+      <TeamB>
+        <Player Name="Ruben" Score="0">
+          <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+          <Skill Key="League of Legends" Value="1"/>
+          <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+          <Skill Key="Left4Dead2" Value="1"/>
+          <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+          <Skill Key="Warcraft 3" Value="1"/>
+        </Player>
+        <Player Name="Tim" Score="0">
+          <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+          <Skill Key="League of Legends" Value="1"/>
+          <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+          <Skill Key="Left4Dead2" Value="1"/>
+          <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+          <Skill Key="Warcraft 3" Value="1"/>
+        </Player>
+        <Player Name="Eloy" Score="0">
+          <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+          <Skill Key="League of Legends" Value="1"/>
+          <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+          <Skill Key="Left4Dead2" Value="1"/>
+          <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+          <Skill Key="Warcraft 3" Value="1"/>
+        </Player>
+        <Player Name="David" Score="0">
+          <Skill Key="Sid Meier's: Civilization V" Value="1"/>
+          <Skill Key="League of Legends" Value="1"/>
+          <Skill Key="Command and Conquer 3: Tiberium Wars" Value="1"/>
+          <Skill Key="Left4Dead2" Value="1"/>
+          <Skill Key="Call of Duty 4: Modern Warfare" Value="1"/>
+          <Skill Key="Warcraft 3" Value="1"/>
+        </Player>
+      </TeamB>
+    </Round>
+  </Rounds>
+</LAN4LIFE>
