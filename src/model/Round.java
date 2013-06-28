@@ -1,5 +1,8 @@
 package model;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 public class Round {
 	public static int getTotalSkill(Player[] team, String game) {
 		int total = 0;
@@ -52,5 +55,24 @@ public class Round {
 	
 	public boolean teamAWon() {
 		return teamAWon;
+	}
+	
+	public Element toXML(Document d) {
+		Element me = d.createElement("Round");
+		me.appendChild(playing.toXML(d));
+		me.setAttribute("TeamAWon", teamAWon ? "1" : "0");
+		
+		Element teamAXML = d.createElement("TeamA");
+		for (Player p : teamA)
+			teamAXML.appendChild(p.toXML(d));
+		
+		me.appendChild(teamAXML);
+		
+		Element teamBXML = d.createElement("TeamB");
+		for (Player p : teamB)
+			teamBXML.appendChild(p.toXML(d));
+		me.appendChild(teamBXML);
+		
+		return me;
 	}
 }
