@@ -23,7 +23,7 @@ public class FileController {
 	 * opgeslagen blijven voor elke LAN Tevens handelt deze class het inladen
 	 * in.
 	 */
-
+ 
 	private String location = "src/resources/Lan4Life.xml";
 	public static FileController instance;
 
@@ -46,7 +46,7 @@ public class FileController {
 			DocumentBuilderFactory docFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-			// TODO: Load shit
+			// TODO: Load shit from controllers
 			
 			// root elements
 			Document doc = docBuilder.newDocument();

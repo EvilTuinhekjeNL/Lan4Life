@@ -88,12 +88,25 @@ public class MainGUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				playGame();
-				System.out.println("Clicky clicked");
 
 			}
 		});
 		viewPlayersBtn = new JButton("View Players");
+		viewPlayersBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				viewPlayers();
+
+			}
+		});
 		viewScoreBtn = new JButton("View Scores");
+		viewScoreBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				viewScore();
+
+			}
+		});
 		Dimension buttonSize = new Dimension(150, 75);
 		playBtn.setPreferredSize(buttonSize);
 		viewPlayersBtn.setPreferredSize(buttonSize);
@@ -120,21 +133,43 @@ public class MainGUI extends JFrame {
 	}
 
 	private void playGame() {
+		littleWrap.remove(contentPanel);
+		contentPanel = new JPanel(new FlowLayout());
+		contentPanel.setBackground(Color.decode("#1c1c1c"));
+		
 		JLabel lablab = new JLabel("Play Game!");
 		lablab.setForeground(Color.WHITE);
 		contentPanel.add(lablab);
+		
+		littleWrap.add(contentPanel, BorderLayout.CENTER);
+		littleWrap.revalidate();
 	}
 
 	private void viewPlayers() {
+		littleWrap.remove(contentPanel);
+		contentPanel = new JPanel(new FlowLayout());
+		contentPanel.setBackground(Color.decode("#1c1c1c"));
+		
 		JLabel lablab = new JLabel("View Players!");
 		lablab.setForeground(Color.WHITE);
 		contentPanel.add(lablab);
+		
+		littleWrap.add(contentPanel, BorderLayout.CENTER);
+		littleWrap.revalidate();
+		
 	}
 
 	private void viewScore() {
+		littleWrap.remove(contentPanel);
+		contentPanel = new JPanel(new FlowLayout());
+		contentPanel.setBackground(Color.decode("#1c1c1c"));
+		
 		JLabel lablab = new JLabel("View Score!");
 		lablab.setForeground(Color.WHITE);
 		contentPanel.add(lablab);
+		
+		littleWrap.add(contentPanel, BorderLayout.CENTER);
+		littleWrap.revalidate();
 	}
 
 	public void actionPerformed(ActionEvent e) {
