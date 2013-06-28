@@ -142,7 +142,8 @@ public class MainGUI extends JFrame {
 		contentPanel = new JPanel(new FlowLayout());
 		contentPanel.setBackground(Color.decode("#1c1c1c"));
 
-		JLabel lablab = new JLabel("Play Game!");
+		String gameTxt = String.format("Ronde %d, het spel dat gespeeld gaat worden is: %s", scoreController.getCountRounds(), scoreController.);
+		JLabel lablab = new JLabel("Ronde !");
 		lablab.setForeground(Color.WHITE);
 		contentPanel.add(lablab);
 
@@ -159,15 +160,15 @@ public class MainGUI extends JFrame {
 		ArrayList<Player> players = playerController.getPlayers();
 		ArrayList<String[]> playerList = new ArrayList<String[]>();
 		for(Player noob : players){
+			int played = playerController.getPlayed(noob.getName());
+			int won = playerController.getWon(noob.getName());
+			
 			ArrayList<String> data = new ArrayList<String>();
-			//playerController.getRank(noob.getName());
-			data.add("1");
+			data.add(""+playerController.getRank(noob.getName()));
 			data.add(noob.getName());
-			//playerController.getPlayed(noob.getName());
-			data.add("1");
-			//playerController.getWon(noob.getName());
-			data.add("1");
-			data.add("1/1");
+			data.add(" "+played);
+			data.add(""+ won);
+			data.add(""+played+"/"+won);
 			playerList.add(data.toArray(new String[data.size()]));
 		}
 		
@@ -176,6 +177,7 @@ public class MainGUI extends JFrame {
 
 		JTable playerTable = new JTable(dataValues, columnNames);
 		playerTable.setEnabled(false);
+		playerTable.setAutoCreateRowSorter(true);
 		JScrollPane scrollPane = new JScrollPane(playerTable);
 		scrollPane.setBackground(Color.decode("#1c1c1c"));
 		scrollPane.getViewport().setBackground(Color.decode("#1c1c1c"));
