@@ -99,5 +99,7 @@ public class ScoreController {
 			else
 				last.setTeamBWin();
 		}
+		
+		newGame();
 	}
 }
